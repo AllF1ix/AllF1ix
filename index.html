@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MegaStream - Automatic Hub</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Header & Search Navigation -->
+    <header class="navbar">
+        <div class="logo">MEGASTREAM</div>
+        
+        <!-- Interactive Search Bar -->
+        <div class="search-box">
+            <input type="text" id="search-input" placeholder="Maghanap ng Pelikula, Anime, o Drama..." onkeyup="handleSearch(event)">
+            <button onclick="triggerSearch()">🔍</button>
+        </div>
+
+        <nav class="nav-categories">
+            <button class="nav-btn active" onclick="changeCategory('trending')">Trending</button>
+            <button class="nav-btn" onclick="changeCategory('movie')">Movies</button>
+            <button class="nav-btn" onclick="changeCategory('tv')">TV Shows & Anime</button>
+        </nav>
+    </header>
+
+    <!-- Main Spotlight Banner -->
+    <section class="hero" id="hero-banner">
+        <div class="hero-content">
+            <span class="badge" id="banner-tag">SPOTLIGHT</span>
+            <h1 id="banner-title">Loading Spotlight...</h1>
+            <p class="meta-info"><strong>Cast:</strong> <span id="banner-cast">Fetching data...</span></p>
+            <p id="banner-desc">Pumili ng palabas sa ibaba o maghanap sa search bar upang mag-load ng detalye.</p>
+            <button class="btn-play" onclick="openPlayer()">▶ Watch Now</button>
+        </div>
+    </section>
+
+    <!-- Dynamic Media Grid -->
+    <section class="media-container">
+        <h2 id="section-title">Trending Today</h2>
+        <div class="media-grid" id="media-grid-items">
+            <!-- Awtomatikong papasok dito ang mga posters mula sa TMDB API -->
+        </div>
+    </section>
+
+    <!-- Video Streaming Player Overlay -->
+    <div id="videoModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closePlayer()">&times;</span>
+            <div class="video-wrapper" id="player-container">
+                <!-- Dito kakarga ang video file mo o ang backup trailer -->
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
