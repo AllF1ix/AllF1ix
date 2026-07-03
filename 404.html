@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>AllFlix</title>
+<!--
+  Ang GitHub Pages ay static hosting lang — walang server-side routing.
+  Kaya kapag direktang binisita o ni-refresh ang isang URL tulad ng
+  /movie/avatar-2009-19995, magbabalik ito ng 404 mula mismo sa GitHub Pages
+  bago pa man makarating ang request sa index.html/script.js.
+
+  Ang pahinang ito ang humaharap sa 404 na 'yon: itinatago muna niya ang
+  orihinal na ninais na path sa sessionStorage, pagkatapos ay babalik sa
+  homepage ("/"). Doon, may maikling script sa <head> ng index.html na
+  babasa ulit ng naka-save na path at ibabalik ito sa address bar bago
+  mag-render ang app — kaya nakikita pa rin ng user (at ng Google) ang
+  tamang /movie/... URL, gumagana lang ito sa likod ng eksena.
+-->
+<script>
+    sessionStorage.setItem("allflix_redirect_path", location.pathname + location.search + location.hash);
+    location.replace("/");
+</script>
+</head>
+<body>
+    Redirecting…
+</body>
+</html>
